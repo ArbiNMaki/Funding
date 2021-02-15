@@ -8,7 +8,7 @@ type Repository interface {
 	FindByID(ID int) (Campaign, error)
 	Save(campaign Campaign) (Campaign, error)
 	Update(campaign Campaign) (Campaign, error)
-	CreateImage(camapignImage CampaignImage) (CampaignImage, error)
+	CreateImage(campaignImage CampaignImage) (CampaignImage, error)
 	MarkAllImagesAsNonPrimary(campaignID int) (bool, error)
 }
 

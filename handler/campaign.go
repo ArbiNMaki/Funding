@@ -45,7 +45,7 @@ func (h *campaignHandler) GetCampaign(c *gin.Context) {
 
 	campaignDetail, err := h.service.GetCampaignByID(input)
 	if err != nil {
-		response := helper.APIResponse("Error to get Campaigns", http.StatusBadRequest, "error", nil)
+		response := helper.APIResponse("Failed to get detail of Campaign", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
@@ -127,7 +127,7 @@ func (h *campaignHandler) UploadImage(c *gin.Context) {
 		errors := helper.FormatValidationError(err)
 		errorMessage := gin.H{"errors": errors}
 
-		response := helper.APIResponse("Failed to update campaign", http.StatusUnprocessableEntity, "error", errorMessage)
+		response := helper.APIResponse("Failed to upload campaign image", http.StatusUnprocessableEntity, "error", errorMessage)
 		c.JSON(http.StatusUnprocessableEntity, response)
 		return
 	}
